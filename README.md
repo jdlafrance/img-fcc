@@ -1,1 +1,1 @@
-This is a url shortener microservice built for FCC basejump challenges.
+This is a Image Search Abstraction Layer built for FCC
