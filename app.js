@@ -4,10 +4,10 @@ var url = require('url');
 var request = require('request');
 var app = express();
 
-var api = "https://www.googleapis.com/customsearch/v1?key="+MONGOO+"&cx="+CX+"&searchType=image&q=";
+var api = "https://www.googleapis.com/customsearch/v1?key="+process.env.MONGOO+"&cx="+process.env.CX+"&searchType=image&q=";
 
 app.get('/', function(req, res, callback){
-    var URL = MONGOLAB;
+    var URL = process.env.MONGOLAB;
     var data = null;
     var arr = [];
     var q = url.parse(req.url).query;
