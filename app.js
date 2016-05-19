@@ -19,7 +19,7 @@ app.get('/', function(req, res, callback){
     mongo.connect(URL, function(err, db){
        if (err) return;
        var collection = db.collection('img');
-    collection.insert({term: query, when: new Date()})
+    collection.insert({term: query, when: new Date()});
         db.close();
         
     });
@@ -35,10 +35,10 @@ app.get('/', function(req, res, callback){
                     thumbnail: data[i].image.thumbnailLink,
                     context: data[i].image.contextLink,
                 });
-            };
+            }
             
             callback();
-        };
+        }
         
     });
     
