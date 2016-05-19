@@ -4,10 +4,10 @@ var url = require('url');
 var request = require('request');
 var app = express();
 
-var api = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAIHW-z6-3TSlLybd0EJ273YwQxygNr2Ws&cx=017923440884393087821:ospxbccpyeq&searchType=image&q=";
+var api = "https://www.googleapis.com/customsearch/v1?key="+MONGOO+"&cx="+CX+"&searchType=image&q=";
 
 app.get('/', function(req, res, callback){
-    var URL = 'mongodb://localhost:27017/mydatabase';
+    var URL = MONGOLAB;
     var data = null;
     var arr = [];
     var q = url.parse(req.url).query;
@@ -15,8 +15,6 @@ app.get('/', function(req, res, callback){
     var query = (/(^.*)\?/).exec(q);
     var start = '&start=';
     var startNum = offset[1].substring(7,8)*10+1;
-    console.log(query);
-    console.log(startNum);
     
     mongo.connect(URL, function(err, db){
        if (err) return;
@@ -71,5 +69,5 @@ app.get('/latest', function(req, res){
 });
 
 
-app.listen(8080);
+app.listen(process.env.PORT);
 
