@@ -50,7 +50,7 @@ app.get('/', function(req, res, callback){
 });
 
 app.get('/latest', function(req, res){
-    var URL = 'mongodb://localhost:27017/mydatabase';
+    var URL = process.env.MONGOLAB;
     var arr = [];
     mongo.connect(URL, function(err, db){
        if (err) return;
